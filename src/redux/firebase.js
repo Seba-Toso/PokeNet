@@ -35,11 +35,6 @@ import 'firebase/firestore'         //importo la base de datos de firebase
     })
   }
 
-
-
-
-
-
   //SESSION--------------------------------------------------------------
 
   //Logout Google

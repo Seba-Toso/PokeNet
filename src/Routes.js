@@ -16,7 +16,7 @@ export function PrivateRoute({path, component, ...rest}){               //creo u
         return <Route path={path} component={component} {...rest} />
     }
     else {
-        return <Redirect to="/login" {...rest} />                       //si no la hay vuelvo a login
+        return <Redirect to="/Pokenet/login" {...rest} />                       //si no la hay vuelvo a login
     }
 }
 
@@ -25,12 +25,12 @@ export function PrivateRoute({path, component, ...rest}){               //creo u
 export default function Routes() {
     return (                                                            
         <Switch>
-            <PrivateRoute path="/world" component={World} />
-            <PrivateRoute path="/maps" component={Maps} />
-            <PrivateRoute path="/friends" component={Friends} />
-            <PrivateRoute path="/pokedex" component={Pokedex} />
-            <PrivateRoute exact path="/" component={Home} />            
-            <Route path="/login" component={Login} />
+            <PrivateRoute path="/Pokenet/world" component={World} />
+            <PrivateRoute path="/Pokenet/maps" component={Maps} />
+            <PrivateRoute path="/Pokenet/friends" component={Friends} />
+            <PrivateRoute path="/Pokenet/pokedex" component={Pokedex} />
+            <PrivateRoute exact path="/Pokenet/" component={Home} />            
+            <Route path="/Pokenet/login" component={Login} />
         </Switch>
     )
 }

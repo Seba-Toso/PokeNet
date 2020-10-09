@@ -65,12 +65,12 @@ function Info({info, getOnePokemonAction, addToFavoritesAction, getPokedexInfoAc
     function doLogin(){
         doGoogleLoginAction()
         .then(()=>{
-            history.push("/");
+            history.push("/Pokenet/");
         })
     }
 
     function logOut(){
-        history.push("/login");
+        history.push("/Pokenet/login");
         closeSessionAction()
     }
 
