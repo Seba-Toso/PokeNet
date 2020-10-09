@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Routes from './Routes';
 
-function App() {
+
+import Nav from './components/Nav/Nav'
+import Pages from './components/Reusables/Pages'
+import {connect} from 'react-redux'
+
+function App({loggedIn}) {
+
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav/>
+
+      <div className="jumbotron ml-5 mr-5 mt-4 pb-4 pt-5 jumbotronApp" >
+            <div className="container">
+                <div className="row">
+      
+                  <Routes/>
+
+                {loggedIn?
+                <div className="col">
+                  <Pages />
+                </div>
+                :
+                <React.Fragment />
+                }
+            </div>
+        </div>
+    </div>
+
+
+
     </div>
   );
 }
 
-export default App;
+
+function mapState({user: {fetching, loggedIn}}){           
+  return {                                                
+      fetching,
+      loggedIn
+  }
+}             
+
+export default connect(mapState)(App)   
+                                                                      
+                                           

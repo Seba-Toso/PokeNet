@@ -1,0 +1,73 @@
+@font-face {
+    font-family: startMesssage;
+    src: url(../../assets/fonts/prstartk.ttf);
+}
+
+.homeInfoContainer, .loginInfoContainer {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    border: 2px solid rgb(240, 239, 232);
+}
+.logoContainer {
+    height: 2em;
+}
+.pokedexContainer {
+    background: #eee;
+    border: none;
+    border-radius: 5px;
+    height: 200px;
+}
+.pokedexButton {
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #eee ;
+    width: 100%;
+    height: 2em;
+}
+.pokedexButton:focus {
+    outline: none;
+    background: rgba(0, 128, 0, 0.2);
+    border: 1px solid #bbb ;
+}
+.pokedexButton:active {
+    outline: none;
+}
+.pokedexLi {
+    text-align: center;
+    background: rgba(0, 128, 0, 0.2);
+    width: 100%;
+}
+.PokemonType {
+    height: 75px;
+    list-style-type: none;
+}
+.typeContainerWorld {
+    width: 70px;
+    padding: 5px;
+    padding-top: 3px;
+    border-radius: 5px;
+    border: 2px solid white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.loginTitle {
+    text-decoration: underline;
+}
+.loginnbtn {
+    width: 6em;
+    margin-top: 1em;
+}
+.bottomMessage {
+    font-family: startMesssage;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+

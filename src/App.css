@@ -1,38 +1,198 @@
-.App {
-  text-align: center;
+/* GENERALS */
+body {
+    background-image: url(./assets/wallpaper.png);
+    background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* NAV BAR */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    color: azure;
 }
-
-.App-link {
-  color: #61dafb;
+.pokeball {
+    background: #333;
+    width: 2.5em;
+    height: 2.5em;
+    text-align: center;
+    line-height: 2.2em;
+    border-radius: 50%;
+    animation: rotation 8s infinite linear;
 }
-
-@keyframes App-logo-spin {
+.configImg {
+  animation: rotation 8s infinite linear;
+}
+@keyframes rotation {
   from {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(359deg);
   }
+}
+.avatar {
+  border-radius: 50%;
+}
+.configLink {
+  transition: all 150ms ease-in-out;
+}
+.configLink:hover {
+  background: rgb(241, 188, 53);
+}
+.logout:hover {
+  background: rgba(219, 53, 68, 0.6);
+}
+
+
+/* CARD COMPONENT */
+.card {
+    width: 18rem;
+    box-shadow: 0 0 8px 4px #ddd;
+}
+.card-img-top {
+    background: #def0f0;
+    width: 100%;
+    height: 16rem;
+}
+.spinnerContainer {
+  line-height: 17em;
+}
+
+
+/* INFO COMPONENT */
+.avatarHome {
+  border: 4px solid rgb(219, 53, 68);
+  border-radius: 50%;
+}
+.reactionButton {
+  background: none;
+  border: none;
+  outline: none;
+}
+.reactionButton:focus {
+  outline: none;
+}
+.reactionButton:active {
+  outline: none;
+  border: none;
+  animation: clicked 300ms ;
+}
+@keyframes clicked {
+  from {
+    transform: scale(1,1);
+  }
+  to {
+    transform: scale(0.5, 0.5);
+  }
+}
+.reactionImg {
+  opacity: 0.5;
+  transition: all 100ms;
+}
+.reactionImg:hover {
+  opacity: 0.9;
+}
+.PokemonTypeList {
+  list-style-type: none;
+}
+
+
+/* WORLD COMPONENT */
+.jumbotron {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 8px 4px #ddd;
+}
+
+
+/* LOGIN COMPONENT */ 
+.jumbotronLogin {
+  background-image: url(../src/assets/startscreen.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -5.5em;
+}
+
+
+
+/* DETAIL COMPONENT */
+.detailImg {
+  border: 5px solid #ddd;
+  box-shadow: 0 0 1px 1px inset #333;
+}
+.typeContainer {
+  padding: 5px;
+  padding-top: 3px;
+  border-radius: 5px;
+  border: 2px solid white;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.gamesContainer {
+  background: rgb(35, 37, 44);
+  border: none;
+  border-radius: 5px;
+  height: 150px;
+}
+.gameList {
+  padding-left: 0;
+}
+.gameLi {
+  list-style-type: none;
+  color: azure;
+}
+#water {
+  background: cornflowerblue;
+}
+#fire {
+  background: coral;
+}
+#grass {
+  background: rgb(109, 191, 49);
+}
+#normal {
+  background: rgb(240, 239, 232);
+  color: #333;
+}
+#dragon {
+  background: rgb(118, 94, 225);
+}
+#dark {
+  background: rgb(78, 57, 46);
+}
+#bug {
+  background: rgb(137, 150, 11);
+}
+#fighting {
+  background: rgb(125, 46, 27);
+  color: white;
+}
+#flying {
+  background: rgb(144, 163, 241);
+}
+#ghost {
+  background: rgb(92, 92, 174);
+}
+#ground {
+  background: rgb(211, 177, 88);
+}
+#ice {
+  background: rgb(107, 211, 244);
+}
+#fairy {
+  background: rgb(238, 167, 239);
+}
+#poison {
+  background: rgb(145, 68, 147);
+  color: white;
+}
+#psychic {
+  background: rgb(230, 66, 121);
+  color: white;
+}
+#rock {
+  background: rgb(180, 160, 83);
+}
+#steel {
+  background: rgb(179, 179, 195);
+}
+#electric {
+  background: rgb(241, 188, 53);
 }
