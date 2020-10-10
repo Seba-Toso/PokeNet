@@ -29,7 +29,7 @@ export default function Routes() {
             <PrivateRoute path="/Pokenet/maps" component={Maps} />
             <PrivateRoute path="/Pokenet/friends" component={Friends} />
             <PrivateRoute path="/Pokenet/pokedex" component={Pokedex} />
-            <PrivateRoute exact path="/Pokenet/" component={Home} />            
+            <PrivateRoute exact path="/Pokenet" component={Home} />            
             <Route path="/Pokenet/login" component={Login} />
         </Switch>
     )

@@ -65,7 +65,7 @@ function Info({info, getOnePokemonAction, addToFavoritesAction, getPokedexInfoAc
     function doLogin(){
         doGoogleLoginAction()
         .then(()=>{
-            history.push("/Pokenet/");
+            history.push("/Pokenet");
         })
     }
 
