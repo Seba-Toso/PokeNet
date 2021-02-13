@@ -7,8 +7,6 @@ import {connect} from 'react-redux'
 
 function World({pokemons, current}){
 
-    console.log(pokemons);
-
     let {name, id, sprites, types} = current
     let img = sprites? sprites.front_default : ""
 

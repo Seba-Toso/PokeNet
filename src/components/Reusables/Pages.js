@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link  } from 'react-router-dom'
-
+import { NavLink  } from 'react-router-dom'
+import * as ReactIcons from 'react-icons/bs'
 
 
 
@@ -11,37 +11,37 @@ return (
     <div className="col-3 float-right " >
         <div className="nav flex-column nav-pills border-left" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-            <Link 
+            <NavLink 
             to="/world"
             className="nav-link link" 
             id="v-pills-home-tab" 
             role="tab" 
             aria-controls="v-pills-home" 
-            aria-selected="true" >World</Link>
+            aria-selected="true"><ReactIcons.BsHouse /> World</NavLink>
 
-            <Link 
+            <NavLink 
             to="/pokedex"
             className="nav-link link" 
             id="v-pills-pokedex-tab" 
             role="tab" 
             aria-controls="v-pills-home" 
-            aria-selected="true">Pokedex</Link>
+            aria-selected="true"><ReactIcons.BsTablet /> Pokedex</NavLink>
 
-            <Link 
+            <NavLink 
             to="/friends"
             className="nav-link link" 
             id="v-pills-home-tab" 
             role="tab" 
             aria-controls="v-pills-home" 
-            aria-selected="true">Friends</Link>
+            aria-selected="true"><ReactIcons.BsPeople /> Friends</NavLink>
    
-            <Link 
+            <NavLink 
             to="/maps"
             className="nav-link link" 
             id="v-pills-home-tab" 
             role="tab" 
             aria-controls="v-pills-home" 
-            aria-selected="true">Maps</Link>
+            aria-selected="true"><ReactIcons.BsMap /> Maps</NavLink>
 
         </div>
     </div>

@@ -118,26 +118,26 @@ export let restoreFavsAction = () => dispatch => {
 }
 
 //Si hay una sesión activa recupera los pokemones capturados de la DB 
-export let getBackFavs = () => (dispatch, getState) =>{     
+export let getBackFavs = () => async (dispatch, getState) =>{     
     dispatch({
         type: GET_FAVS
     })
     let {uid} = getState().user                             //tomo el usuario para luego buscar sus favoritos en la DB
-    return getCatched(uid)                                  //uso la función getFavs (definida en firebase) para buscar la DB de mi user
-    .then(array => {                                      
-        dispatch({                                         
+    try {
+        const array = await getCatched(uid) //uso la función getFavs (definida en firebase) para buscar la DB de mi user
+            
+        dispatch({
             type: GET_FAVS_SUCCES,
             payload: [...array]
         })
-    saveStorage(getState())                                 
-    })                                                      
-    .catch(e=>{
-        console.log(e);
+        saveStorage(getState())
+    } catch (e) {
+        //console.log(e);
         dispatch({
             type: GET_FAVS_ERROR,
             payload: e.message
         })
-    })
+    }
 }
 
 //Cuando se clickea en capturar, quita el pokemon de la lista y lo pasa a favoritos
@@ -176,24 +176,23 @@ export let removeCharacterAction = () => (dispatch, getState) =>{
 
 //Realizo el pedido a la API y guardo su respuesta, que son los 893 Pokemones          
 export function getPokemonAction(){      
-    return (dispatch)=>{                
+    return async (dispatch)=>{                
         dispatch({                                    
             type: GET_CHARACTERS                             
         })                            
-        return axios.get(URL)                         
-        .then(res => {                                 
-            dispatch({                          
-                type: GET_CHARACTERS_SUCCES,    
-                payload: res.data.results       
+        try {
+            const res = await axios.get(URL)
+            dispatch({
+                type: GET_CHARACTERS_SUCCES,
+                payload: res.data.results
             })
-        })
-        .catch(err=>{
-            console.log(err);
+        } catch (err) {
+            console.log(err)
             dispatch({
                 type: GET_CHARACTERS_ERROR,
                 payload: err.response.message
             })
-        })
+        }
     }
 }
 
@@ -203,24 +202,23 @@ export function getOnePokemonAction(){
     let randomNumber = Math.round(Math.random()*893)
     let SINGLE_POKEMON_URL = "https://pokeapi.co/api/v2/pokemon/"+randomNumber;
 
-    return (dispatch)=>{                   
+    return async (dispatch)=>{                   
         dispatch({                                    
             type: GET_SINGLE_POKEMON                             
         })                            
-        return axios.get(SINGLE_POKEMON_URL)                         
-        .then(res => {                                   
-            dispatch({                          
-                type: GET_SINGLE_POKEMON_SUCCES,    
-                payload: res.data       
+        try {
+            const res = await axios.get(SINGLE_POKEMON_URL)
+            dispatch({
+                type: GET_SINGLE_POKEMON_SUCCES,
+                payload: res.data
             })
-        })
-        .catch(err=>{
-            console.log(err);
+        } catch (err) {
+            console.log(err)
             dispatch({
                 type: GET_SINGLE_POKEMON_ERROR,
                 payload: err.response
             })
-        })
+        }
     }
 }
 
@@ -230,24 +228,23 @@ export function getOnePokemonAction(){
 export function getPokedexInfoAction(name){
     let POKEMON_URL = "https://pokeapi.co/api/v2/pokemon/"+name;
 
-    return (dispatch)=>{                   
+    return async (dispatch)=>{                   
         dispatch({                                    
             type: GET_POKEMON                             
         })                            
-        return axios.get(POKEMON_URL)                         
-        .then(res => {                                   
-            dispatch({                          
-                type: GET_POKEMON_SUCCES,    
-                payload: res.data       
+        try {
+            const res = await axios.get(POKEMON_URL)
+            dispatch({
+                type: GET_POKEMON_SUCCES,
+                payload: res.data
             })
-        })
-        .catch(err=>{
-            console.log(err);
+        } catch (err) {
+            console.log(err)
             dispatch({
                 type: GET_POKEMON_ERROR,
                 payload: err.response
             })
-        })
+        }
     }
 }
 

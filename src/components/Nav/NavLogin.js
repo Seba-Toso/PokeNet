@@ -9,7 +9,6 @@ import { Link, useLocation } from 'react-router-dom';
 function NavLogin({closeSessionAction, loggedIn, fetching}){
 
   const location = useLocation()
-  console.log(location);
 
   function logOut(){
     closeSessionAction()

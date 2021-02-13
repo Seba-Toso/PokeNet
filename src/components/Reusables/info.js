@@ -8,11 +8,11 @@ import './Reusabes.css'
 
 
 
-function Info({info, getOnePokemonAction, addToFavoritesAction, getPokedexInfoAction, doGoogleLoginAction, closeSessionAction, favorites}){
+const Info = ({info, getOnePokemonAction, addToFavoritesAction, getPokedexInfoAction, doGoogleLoginAction, closeSessionAction, favorites}) => {
 
     const history = useHistory()
-
-    let {types, title, perfil, origen, subtitle, totalCatch} = info 
+    
+    let {types, title, perfil, origen, subtitle, totalCatch} = info
 
 
     let user = {}

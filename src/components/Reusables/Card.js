@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {connect} from 'react-redux'
 import Details from '../Details/Details'
 import {getOnePokemonAction} from '../../redux/pkDuck'
@@ -8,14 +8,15 @@ import '../../App.css';
 
 function Card({info, pokedex, getOnePokemonAction}){
 
+
+    useEffect(()=>{
+        getOnePokemonAction()
+    },[])
+
     let defaultStats = {
         defaultName: "MissingNo",
         defaultImg: "../../assets/icons/MissingNo.png",
         defaultInfo: "No information aviable."
-    }
-
-    function seeOther(){
-        getOnePokemonAction()
     }
     
 
@@ -43,20 +44,19 @@ function Card({info, pokedex, getOnePokemonAction}){
 
                 <div className="modal fade" id="exampleModal"  data-keyboard="false" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
-                        <div className="modal-header pt-1 pb-1">
-                            <h4 className="modal-title" id="exampleModalLabel">{name? name : defaultStats.defaultName}</h4>
+                        <div className="modal-content">
+                            <div className="modal-header pt-1 pb-1">
+                                <h4 className="modal-title" id="exampleModalLabel">{name? name : defaultStats.defaultName}</h4>
+                            </div>
+                            <div className="modal-body bg-dark text-white ">
+                                {!name? defaultStats.defaultInfo : <Details/>}
+                            </div>
+                            <div className="modal-footer pt-1 pb-1">
+                                <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
-                        <div className="modal-body bg-dark text-white ">
-                            {!name? defaultStats.defaultInfo : <Details/>}
-                        </div>
-                        <div className="modal-footer pt-1 pb-1">
-                            <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
-
             </div>
         </div>
         )
@@ -79,7 +79,7 @@ function Card({info, pokedex, getOnePokemonAction}){
                 {name?
                     <h5 className="card-title">A wild <strong>{name}</strong> appeard!</h5>
                     :
-                    <button type="button" className="btn btn-primary" onClick={seeOther}>Start Searching</button>
+                    null
                 }
             </div>
         </div>

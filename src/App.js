@@ -1,6 +1,5 @@
 import React from 'react';
-import Routes from './Routes';
-
+import Routes from './Routes' 
 
 import Nav from './components/Nav/Nav'
 import Pages from './components/Reusables/Pages'
@@ -15,24 +14,22 @@ function App({loggedIn}) {
       <Nav/>
 
       <div className="jumbotron ml-5 mr-5 mt-4 pb-4 pt-5 jumbotronApp" >
-            <div className="container">
+              <div className="container">
                 <div className="row">
-      
-                  <Routes/>
-
-                {loggedIn?
-                <div className="col">
-                  <Pages />
-                </div>
-                :
-                <React.Fragment />
-                }
-            </div>
-        </div>
-    </div>
-
-
-
+        
+                    <Routes />
+                    
+                  {
+                    loggedIn?
+                    <div className="col">
+                      <Pages />
+                    </div>
+                    :
+                    <React.Fragment />
+                  }
+              </div>
+          </div>
+      </div>
     </div>
   );
 }

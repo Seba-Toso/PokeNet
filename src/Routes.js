@@ -11,7 +11,7 @@ import World from './components/World/World'
 let storage = localStorage.getItem('storage')                       //chequeo si en el localstorage hay datos de una sesion
     storage = JSON.parse(storage)
 
-export function PrivateRoute({path, component, ...rest}){               //creo un componente nuevo llamado PrivateRoute para filtrar por inicio de sesion
+export const PrivateRoute = ({path, component, ...rest}) => {               //creo un componente nuevo llamado PrivateRoute para filtrar por inicio de sesion
     if(storage && storage.user) {                               
         return <Route path={path} component={component} {...rest} />
     }
@@ -23,13 +23,14 @@ export function PrivateRoute({path, component, ...rest}){               //creo u
 
 
 export default function Routes() {
+    
     return (                                                            
-        <Switch>
-            <PrivateRoute path="/Pokenet/world" component={World} />
-            <PrivateRoute path="/Pokenet/maps" component={Maps} />
-            <PrivateRoute path="/Pokenet/friends" component={Friends} />
-            <PrivateRoute path="/Pokenet/pokedex" component={Pokedex} />
-            <PrivateRoute exact path="/Pokenet" component={Home} />            
+        <Switch> 
+            <Route path="/world" component={World} />
+            <PrivateRoute path="/maps" component={Maps} />
+            <PrivateRoute path="/friends" component={Friends} />
+            <PrivateRoute path="/pokedex" component={Pokedex} />
+            <PrivateRoute exact path="/" component={Home} />            
             <Route path="/Pokenet/login" component={Login} />
         </Switch>
     )
